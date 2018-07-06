@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "name": "spa-template",
+  "description": "基于 React 技术栈的单页应用开发模板",
+  "license": "UNLICENSED",
+  "scripts": {
+    "commitmsg": "commitlint -E GIT_PARAMS"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@uedlinker/commitlint-config": "^1.0.0",
+    "eslint": "^5.0.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard-react": "^6.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "husky": "^0.14.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@uedlinker/commitlint-config"
+    ]
+  }
+}
