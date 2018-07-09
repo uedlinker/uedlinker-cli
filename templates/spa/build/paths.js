@@ -12,5 +12,4 @@ module.exports = {
   appDir: cwd,
   entry,
   outputPath: path.resolve(cwd, './dist'),
-  publicPath: '/',
 }

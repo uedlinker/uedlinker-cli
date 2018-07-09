@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
@@ -16,8 +17,8 @@ module.exports = merge(common, {
   mode: 'production',
 
   output: {
-    filename: '[name].[chunkhash:8].bundle.js',
-    chunkFilename: '[name].[chunkhash:8].chunk.js',
+    filename: '[chunkhash].js',
+    chunkFilename: '[chunkhash].js',
   },
 
   module: {
@@ -65,6 +66,7 @@ module.exports = merge(common, {
   },
 
   plugins: [
+    new CleanWebpackPlugin(['dist'], { root: appDir }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.BABEL_ENV': JSON.stringify('production'),

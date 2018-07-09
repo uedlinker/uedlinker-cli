@@ -1,5 +1,5 @@
 const path = require('path')
-const { appDir, entry, outputPath, publicPath } = require('./paths')
+const { appDir, entry, outputPath } = require('./paths')
 
 module.exports = {
   context: appDir,
@@ -7,7 +7,6 @@ module.exports = {
 
   output: {
     path: outputPath,
-    publicPath,
   },
 
   module: {
