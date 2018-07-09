@@ -7,6 +7,7 @@ module.exports = {
 
   output: {
     path: outputPath,
+    publicPath: '/',
   },
 
   module: {
