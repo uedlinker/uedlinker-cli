@@ -24,11 +24,6 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
-      {
         test: /\.css$/,
         use: [
           'style-loader',
@@ -43,17 +38,6 @@ module.exports = merge(common, {
           'css-loader',
           'postcss-loader',
           'sass-loader',
-        ],
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-            },
-          },
         ],
       },
     ],
