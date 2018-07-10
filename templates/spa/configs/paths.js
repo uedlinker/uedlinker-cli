@@ -17,5 +17,6 @@ module.exports = {
   appPath,
   entry,
   staticPath,
+  srcPath: path.resolve(appPath, './src'),
   outputPath: path.resolve(appPath, './dist'),
 }

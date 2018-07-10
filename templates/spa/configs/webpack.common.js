@@ -1,5 +1,5 @@
 const path = require('path')
-const { appPath, entry, outputPath } = require('./paths')
+const { appPath, entry, srcPath, outputPath } = require('./paths')
 
 module.exports = {
   context: appPath,
@@ -14,8 +14,16 @@ module.exports = {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
+        include: srcPath,
+        exclude: [/[/\\\\]node_modules[/\\\\]/],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            presets: ['env', 'stage-0', 'react', 'flow'],
+            cacheDirectory: true,
+          },
+        },
       },
       {
         test: /\.(bmp|png|jpe?g|gif|svg)$/,
