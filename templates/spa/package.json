@@ -4,7 +4,7 @@
   "description": "基于 React 技术栈的单页应用开发模板",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config=configs/webpack.dev.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config=configs/webpack.dev.js --progress --color",
     "build": "cross-env NODE_ENV=production webpack --config=configs/webpack.prod.js",
     "lint": "eslint build scripts src --ext \".js,.jsx\"",
     "flow": "flow",

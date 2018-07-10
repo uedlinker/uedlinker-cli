@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const common = require('./webpack.common')
 const { isDev } = require('./env')
-const { appDir, outputPath } = require('./paths')
+const { appPath, staticPath } = require('./paths')
 
 if (!isDev) {
   throw new Error('运行 webpack 开发环境的配置时，必须设置 NODE_ENV 的值为 development。')
@@ -50,21 +50,25 @@ module.exports = merge(common, {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(appDir, './src/index.html'),
+      template: path.resolve(appPath, './src/index.html'),
     }),
   ],
 
   devServer: {
-    contentBase: outputPath,
+    compress: true,
+    contentBase: staticPath,
     historyApiFallback: {
       disableDotRule: true,
     },
     host: '0.0.0.0',
-    clientLogLevel: 'none',
     open: true,
     openPage: '',
     overlay: true,
     port: 3000,
-    publicPath: '/',
+    useLocalIp: true,
+    watchContentBase: true,
+    watchOptions: {
+      ignored: /node_modules/,
+    },
   },
 })
