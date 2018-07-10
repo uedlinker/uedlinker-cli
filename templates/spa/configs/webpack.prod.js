@@ -18,8 +18,8 @@ module.exports = merge(common, {
   bail: true,
 
   output: {
-    filename: 'js/[chunkhash].js',
-    chunkFilename: 'js/[chunkhash].js',
+    filename: 'public/js/[chunkhash].js',
+    chunkFilename: 'public/js/[chunkhash].js',
     // 这里可以配置 CDN 的地址
     // publicPath: 'https://domain.com/',
   },

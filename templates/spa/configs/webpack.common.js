@@ -18,12 +18,25 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        test: /\.(bmp|png|jpe?g|gif|svg)$/,
         use: [
           {
             loader: 'url-loader',
             options: {
               limit: 8192,
+              name: 'public/images/[name].[hash].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: 'public/fonts/[name].[hash].[ext]',
             },
           },
         ],
