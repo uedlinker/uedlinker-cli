@@ -15,6 +15,7 @@ if (!isProd) {
 
 module.exports = merge(common, {
   mode: 'production',
+  bail: true,
 
   output: {
     filename: 'js/[chunkhash].js',
