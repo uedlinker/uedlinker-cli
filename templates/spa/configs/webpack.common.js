@@ -1,9 +1,11 @@
 const path = require('path')
-const { appPath, entry, srcPath, outputPath } = require('./paths')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const { appPath, entryPath, outputPath, templatePath } = require('./paths')
 
 module.exports = {
   context: appPath,
-  entry,
+  entry: entryPath,
 
   output: {
     path: outputPath,
@@ -12,19 +14,6 @@ module.exports = {
 
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        include: srcPath,
-        exclude: [/[/\\\\]node_modules[/\\\\]/],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            babelrc: false,
-            presets: ['env', 'stage-0', 'react', 'flow'],
-            cacheDirectory: true,
-          },
-        },
-      },
       {
         test: /\.(bmp|png|jpe?g|gif|svg)$/,
         use: [
@@ -63,6 +52,26 @@ module.exports = {
       store: path.resolve(appPath, './src/store'),
       styles: path.resolve(appPath, './src/styles'),
       utils: path.resolve(appPath, './src/utils'),
+    },
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: templatePath,
+    }),
+  ],
+
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
     },
   },
 }

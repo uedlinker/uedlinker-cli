@@ -1,13 +1,14 @@
-const path = require('path')
-const webpack = require('webpack')
+const cssnano = require('cssnano')
 const merge = require('webpack-merge')
+const autoprefixer = require('autoprefixer')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const common = require('./webpack.common')
 const { isProd } = require('./env')
-const { appPath } = require('./paths')
+const common = require('./webpack.common')
+const { appPath, srcPath, staticPath } = require('./paths')
 
 if (!isProd) {
   throw new Error('运行 webpack 生产环境的配置时，必须设置 NODE_ENV 的值为 production。')
@@ -29,15 +30,38 @@ module.exports = merge(common, {
       {
         enforce: 'pre',
         test: /\.jsx?$/,
+        include: srcPath,
         exclude: /node_modules/,
         use: 'eslint-loader',
+      },
+      {
+        test: /\.jsx?$/,
+        include: srcPath,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            babelrc: false,
+            presets: ['env', 'stage-0', 'react', 'flow'],
+            compact: true,
+          },
+        },
       },
       {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                autoprefixer(),
+                cssnano(),
+              ],
+            },
+          },
         ],
       },
       {
@@ -45,7 +69,16 @@ module.exports = merge(common, {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: [
+                autoprefixer(),
+                cssnano(),
+              ],
+            },
+          },
           'sass-loader',
         ],
       },
@@ -54,17 +87,13 @@ module.exports = merge(common, {
 
   plugins: [
     new CleanWebpackPlugin(['dist'], { root: appPath }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-      'process.env.BABEL_ENV': JSON.stringify('production'),
-    }),
+    new CopyWebpackPlugin([
+      { from: staticPath },
+    ]),
     new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash:8].bundle.css',
-      chunkFilename: '[name].[chunkhash:8].chunk.css',
+      filename: 'public/css/[chunkhash].css',
+      chunkFilename: 'public/css/[chunkhash].css',
     }),
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: path.resolve(appPath, './src/index.html'),
-    }),
+    new ManifestPlugin(),
   ],
 })

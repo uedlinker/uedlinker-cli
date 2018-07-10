@@ -2,11 +2,16 @@ const fs = require('fs')
 const path = require('path')
 
 const appPath = fs.realpathSync(process.cwd())
-const entry = path.resolve(appPath, './src/index.jsx')
 const staticPath = path.resolve(appPath, './static')
+const entryPath = path.resolve(appPath, './src/index.jsx')
+const templatePath = path.resolve(appPath, './src/index.html')
 
-if (!fs.existsSync(entry)) {
-  throw new Error(`找不到入口文件：${entry}，请新建此文件`)
+if (!fs.existsSync(entryPath)) {
+  throw new Error(`找不到入口文件：${entryPath}，请新建此文件`)
+}
+
+if (!fs.existsSync(templatePath)) {
+  throw new Error(`找不到模板文件：${templatePath}，请新建此文件`)
 }
 
 if (!fs.existsSync(staticPath)) {
@@ -15,8 +20,9 @@ if (!fs.existsSync(staticPath)) {
 
 module.exports = {
   appPath,
-  entry,
+  entryPath,
   staticPath,
+  templatePath,
   srcPath: path.resolve(appPath, './src'),
   outputPath: path.resolve(appPath, './dist'),
 }
