@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const common = require('./webpack.common')
 const { isProd } = require('./env')
-const { appDir } = require('./paths')
+const { appPath } = require('./paths')
 
 if (!isProd) {
   throw new Error('运行 webpack 生产环境的配置时，必须设置 NODE_ENV 的值为 production。')
@@ -52,7 +52,7 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    new CleanWebpackPlugin(['dist'], { root: appDir }),
+    new CleanWebpackPlugin(['dist'], { root: appPath }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production'),
       'process.env.BABEL_ENV': JSON.stringify('production'),
@@ -63,7 +63,7 @@ module.exports = merge(common, {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(appDir, './src/index.html'),
+      template: path.resolve(appPath, './src/index.html'),
     }),
   ],
 })

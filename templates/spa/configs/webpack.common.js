@@ -1,8 +1,8 @@
 const path = require('path')
-const { appDir, entry, outputPath } = require('./paths')
+const { appPath, entry, outputPath } = require('./paths')
 
 module.exports = {
-  context: appDir,
+  context: appPath,
   entry,
 
   output: {
@@ -34,14 +34,14 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
     alias: {
-      assets: path.resolve(appDir, './src/assets'),
-      components: path.resolve(appDir, './src/components'),
-      configs: path.resolve(appDir, './src/configs'),
-      libs: path.resolve(appDir, './src/libs'),
-      models: path.resolve(appDir, './src/models'),
-      store: path.resolve(appDir, './src/store'),
-      styles: path.resolve(appDir, './src/styles'),
-      utils: path.resolve(appDir, './src/utils'),
+      assets: path.resolve(appPath, './src/assets'),
+      components: path.resolve(appPath, './src/components'),
+      configs: path.resolve(appPath, './src/configs'),
+      libs: path.resolve(appPath, './src/libs'),
+      models: path.resolve(appPath, './src/models'),
+      store: path.resolve(appPath, './src/store'),
+      styles: path.resolve(appPath, './src/styles'),
+      utils: path.resolve(appPath, './src/utils'),
     },
   },
 }
