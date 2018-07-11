@@ -29,8 +29,12 @@ module.exports = merge(common, {
           loader: 'babel-loader',
           options: {
             babelrc: false,
-            presets: ['env', 'stage-0', 'react', 'flow'],
-            plugins: ['react-hot-loader/babel'],
+            presets: ['env', 'stage-0', 'react'],
+            plugins: [
+              'transform-decorators-legacy',
+              'syntax-dynamic-import',
+              'react-hot-loader/babel',
+            ],
             cacheDirectory: true,
           },
         },

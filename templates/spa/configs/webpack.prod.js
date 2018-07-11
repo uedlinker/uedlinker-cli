@@ -19,8 +19,8 @@ module.exports = merge(common, {
   bail: true,
 
   output: {
-    filename: 'public/js/[chunkhash].js',
-    chunkFilename: 'public/js/[chunkhash].js',
+    filename: 'public/js/[name].[chunkhash].js',
+    chunkFilename: 'public/js/[name].[chunkhash].js',
     // 这里可以配置 CDN 的地址
     // publicPath: 'https://domain.com/',
   },
@@ -42,7 +42,11 @@ module.exports = merge(common, {
           loader: 'babel-loader',
           options: {
             babelrc: false,
-            presets: ['env', 'stage-0', 'react', 'flow'],
+            presets: ['env', 'stage-0', 'react'],
+            plugins: [
+              'transform-decorators-legacy',
+              'syntax-dynamic-import',
+            ],
             compact: true,
           },
         },
@@ -91,8 +95,8 @@ module.exports = merge(common, {
       { from: staticPath },
     ]),
     new MiniCssExtractPlugin({
-      filename: 'public/css/[chunkhash].css',
-      chunkFilename: 'public/css/[chunkhash].css',
+      filename: 'public/css/[name].[chunkhash].css',
+      chunkFilename: 'public/css/[name].[chunkhash].css',
     }),
     new ManifestPlugin(),
   ],
