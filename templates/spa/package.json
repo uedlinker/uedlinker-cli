@@ -9,7 +9,6 @@
     "build": "cross-env NODE_ENV=production webpack --config=configs/webpack.prod.js",
     "analyze": "cross-env NODE_ENV=production webpack --config=configs/webpack.analyze.js",
     "lint": "eslint configs scripts src --ext \".js,.jsx\"",
-    "flow": "flow",
     "commitmsg": "commitlint -E GIT_PARAMS",
     "prepush": "npm run lint && npm run flow"
   },
