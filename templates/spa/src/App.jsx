@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react'
 import loadable from 'react-loadable'
+import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import './app.scss'
+import store from 'store'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
 
@@ -27,24 +29,26 @@ const GithubStars = process.env.NODE_ENV === 'production' ? loadable({
 }) : require('./pages/GithubStars').default
 
 const App = () => (
-  <Router>
-    <Fragment>
-      <Header />
-      <div className='layout-wrapper'>
-        <nav className='layout-sider'>
-          <NavLink exact to='/'>Hello Uedlinker</NavLink>
-          <NavLink to='/todos'>Todos</NavLink>
-          <NavLink to='/github-stars'>Github Stars</NavLink>
-        </nav>
-        <main className='layout-content'>
-          <Route path='/' exact component={HelloUedlinker} />
-          <Route path='/todos' exact component={Todos} />
-          <Route path='/github-stars' exact component={GithubStars} />
-          <Footer />
-        </main>
-      </div>
-    </Fragment>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Fragment>
+        <Header />
+        <div className='layout-wrapper'>
+          <nav className='layout-sider'>
+            <NavLink exact to='/'>Hello Uedlinker</NavLink>
+            <NavLink to='/todos'>Todos</NavLink>
+            <NavLink to='/github-stars'>Github Stars</NavLink>
+          </nav>
+          <main className='layout-content'>
+            <Route path='/' exact component={HelloUedlinker} />
+            <Route path='/todos' exact component={Todos} />
+            <Route path='/github-stars' exact component={GithubStars} />
+            <Footer />
+          </main>
+        </div>
+      </Fragment>
+    </Router>
+  </Provider>
 )
 
 export default App
