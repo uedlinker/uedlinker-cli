@@ -13,7 +13,7 @@ const renderApp = Component => {
 renderApp(App)
 
 // 这里没有使用 react-hot-loader 提供的 `hot` 接口，
-// 使用这种复杂的结构，能够减小大约 2kb 的包的大小。
+// 使用这种看似复杂的结构，能够减小大约 2kb 的包的大小。
 if (module.hot && process.env.NODE_ENV === 'development') {
   module.hot.accept(['./App'], () => {
     const App = require('./App').default

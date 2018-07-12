@@ -2,6 +2,7 @@
   "private": true,
   "name": "spa-template",
   "description": "基于 React 技术栈的单页应用开发模板",
+  "version": "0.1.0",
   "license": "UNLICENSED",
   "scripts": {
     "start": "npm run build && http-server dist -o",
