@@ -1,10 +1,15 @@
 {
-  "name": "uedlinker-cli",
-  "version": "0.1.0",
+  "name": "@uedlinker/cli",
+  "version": "0.1.2",
   "description": "快速生成项目开发模板（单页应用、服务器渲染、UI 组件、Node.js 服务）的命令行工具",
   "main": "index.js",
   "scripts": {
-    "commitmsg": "commitlint -E GIT_PARAMS"
+    "lint": "eslint bin libs --ext \".js,.jsx\"",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "prepush": "npm run lint"
+  },
+  "bin": {
+    "uedlinker": "./bin/uedlinker.js"
   },
   "repository": {
     "type": "git",
@@ -13,12 +18,25 @@
   "keywords": [
     "开发模板"
   ],
+  "files": [
+    "bin/",
+    "libs/",
+    "templates/",
+    "README.md",
+    "LICENSE"
+  ],
   "author": "李蔚生 <971353677@qq.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/uedlinker/uedlinker-cli/issues"
   },
   "homepage": "https://github.com/uedlinker/uedlinker-cli#readme",
+  "dependencies": {
+    "commander": "^2.16.0",
+    "fs-extra": "^6.0.1",
+    "glob": "^7.1.2",
+    "ignore": "^4.0.2"
+  },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "@uedlinker/commitlint-config": "^1.0.0",
@@ -40,6 +58,8 @@
         "always",
         [
           "*",
+          "bin",
+          "libs",
           "root",
           "templates",
           "templates/spa"
