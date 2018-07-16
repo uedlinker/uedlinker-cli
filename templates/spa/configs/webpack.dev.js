@@ -1,13 +1,8 @@
 const merge = require('webpack-merge')
 const autoprefixer = require('autoprefixer')
 
-const { isDev } = require('./env')
 const common = require('./webpack.common')
 const { staticPath, srcPath } = require('./paths')
-
-if (!isDev) {
-  throw new Error('运行 webpack 开发环境的配置时，必须设置 NODE_ENV 的值为 development。')
-}
 
 module.exports = merge(common, {
   mode: 'development',

@@ -6,9 +6,9 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "npm run build && http-server dist -o",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config=configs/webpack.dev.js --progress --color --hot",
-    "build": "cross-env NODE_ENV=production webpack --config=configs/webpack.prod.js",
-    "analyze": "cross-env NODE_ENV=production webpack --config=configs/webpack.analyze.js",
+    "dev": "cross-env RUNTIME=development webpack-dev-server --config=configs/webpack.dev.js --progress --color --hot",
+    "build": "cross-env RUNTIME=production webpack --config=configs/webpack.prod.js",
+    "analyze": "cross-env RUNTIME=production webpack --config=configs/webpack.analyze.js",
     "lint": "eslint configs scripts src --ext \".js,.jsx\"",
     "commitmsg": "commitlint -E GIT_PARAMS",
     "prepush": "npm run lint && npm run flow"

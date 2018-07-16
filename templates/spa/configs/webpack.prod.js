@@ -6,13 +6,8 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const { isProd } = require('./env')
 const common = require('./webpack.common')
 const { appPath, srcPath, staticPath } = require('./paths')
-
-if (!isProd) {
-  throw new Error('运行 webpack 生产环境的配置时，必须设置 NODE_ENV 的值为 production。')
-}
 
 module.exports = merge(common, {
   mode: 'production',

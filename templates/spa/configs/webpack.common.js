@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const { appPath, entryPath, outputPath, templatePath } = require('./paths')
@@ -56,6 +57,9 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.RUNTIME': JSON.stringify(process.env.RUNTIME),
+    }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: templatePath,
