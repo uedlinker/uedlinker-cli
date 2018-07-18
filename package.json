@@ -1,6 +1,6 @@
 {
   "name": "@uedlinker/cli",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "快速生成项目开发模板（单页应用、服务器渲染、UI 组件开发、Node.js 服务）的命令行工具",
   "main": "libs/index.js",
   "scripts": {
@@ -34,7 +34,8 @@
     "fs-extra": "^6.0.1",
     "glob": "^7.1.2",
     "ignore": "^4.0.2",
-    "inquirer": "^6.0.0"
+    "inquirer": "^6.0.0",
+    "ora": "^3.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
