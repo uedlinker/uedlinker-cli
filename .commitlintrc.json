@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "@uedlinker/commitlint-config"
+  ],
+  "rules": {
+    "scope-enum": [
+      2,
+      "always",
+      [
+        "*",
+        "root",
+        "bin",
+        "libs",
+        "templates",
+        "templates/spa",
+        "templates/ssr"
+      ]
+    ]
+  }
+}

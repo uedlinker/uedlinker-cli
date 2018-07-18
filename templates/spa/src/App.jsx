@@ -33,16 +33,16 @@ const App = () => (
     <Router>
       <Fragment>
         <Header />
-        <div className='layout-wrapper'>
-          <nav className='layout-sider'>
-            <NavLink exact to='/'>Hello Uedlinker</NavLink>
-            <NavLink to='/todos'>Todos</NavLink>
-            <NavLink to='/github-stars'>Github Stars</NavLink>
+        <div className="layout-wrapper">
+          <nav className="layout-sider">
+            <NavLink exact to="/">Hello Uedlinker</NavLink>
+            <NavLink to="/todos">Todos</NavLink>
+            <NavLink to="/github-stars">Github Stars</NavLink>
           </nav>
-          <main className='layout-content'>
-            <Route path='/' exact component={HelloUedlinker} />
-            <Route path='/todos' exact component={Todos} />
-            <Route path='/github-stars' exact component={GithubStars} />
+          <main className="layout-content">
+            <Route path="/" exact component={HelloUedlinker} />
+            <Route path="/todos" exact component={Todos} />
+            <Route path="/github-stars" exact component={GithubStars} />
             <Footer />
           </main>
         </div>

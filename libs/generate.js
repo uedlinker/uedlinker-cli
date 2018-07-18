@@ -16,8 +16,8 @@ module.exports = (templateName, dir) => {
     if (fs.existsSync(destDir)) {
       console.log(chalk.red(
         `当前目录下已经存在目录 ${dir}，` +
-          `为了避免覆盖原来的文件，` +
-          `请重新指定目标目录或删除 ${dir} 目录`
+        `为了避免覆盖原来的文件，` +
+        `请重新指定目标目录或删除 ${dir} 目录`
       ))
       process.exit(1)
     }

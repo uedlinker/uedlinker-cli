@@ -43,27 +43,29 @@ class Todos extends Component {
       return (
         <li key={id}>
           <input
-            type='checkbox'
+            type="checkbox"
             checked={done}
             onClick={this.handleDoneClick(id)}
           />
           {
             done ? (
-              <del className='todos-content'>{ content }</del>
+              <del className="todos-content">{ content }</del>
             ) : (
-              <span className='todos-content'>{ content }</span>
+              <span className="todos-content">{ content }</span>
             )
           }
           <span
-            className='todos-delete'
+            className="todos-delete"
             onClick={this.handleDeleteClick(id)}
-          >×</span>
+          >
+            ×
+          </span>
         </li>
       )
     })
 
     return todos.length ? (
-      <ul className='todos-list'>
+      <ul className="todos-list">
         { items }
       </ul>
     ) : null
@@ -71,12 +73,12 @@ class Todos extends Component {
 
   render () {
     return (
-      <div className='todos'>
-        <h1 className='todos-title'>Todo.</h1>
+      <div className="todos">
+        <h1 className="todos-title">Todo.</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             ref={this.inputRef}
-            className='todos-input'
+            className="todos-input"
             value={this.state.value}
             onChange={this.handleInputChange}
           />

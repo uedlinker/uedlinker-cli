@@ -9,7 +9,8 @@
     "start": "npm run build && cross-env NODE_ENV=production node server/index.js",
     "dev": "node server/index.js",
     "build": "next build client",
-    "lint": "eslint client server ./next.config.js --ext '.js,.jsx'",
+    "lint": "eslint . --ext '.js,.jsx'",
+    "lint:fix": "eslint . --ext '.js,.jsx' --fix",
     "commitmsg": "commitlint -E GIT_PARAMS",
     "prepush": "npm run lint"
   },
@@ -25,18 +26,21 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
-    "@uedlinker/commitlint-config": "^1.0.0",
-    "babel-eslint": "^8.2.5",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-config-standard-react": "^6.0.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.8.0",
+    "@uedlinker/commitlint-config": "^1.0.1",
+    "@uedlinker/eslint-config-base": "^0.3.0",
+    "@uedlinker/eslint-config-react": "^0.3.1",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.1.0",
     "eslint-plugin-react": "^7.10.0",
-    "eslint-plugin-standard": "^3.1.0",
     "husky": "^0.14.3"
   },
+  "eslintConfig": {
+    "extends": "@uedlinker/eslint-config-react"
+  },
+  "eslintIgnore": [
+    ".next/",
+    "node_modules/"
+  ],
   "commitlint": {
     "extends": [
       "@uedlinker/commitlint-config"

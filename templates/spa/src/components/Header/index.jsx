@@ -4,8 +4,8 @@ import './index.scss'
 import logo from 'assets/images/logo.png'
 
 const Header = () => (
-  <header className='c-header'>
-    <img src={logo} alt='Logo' />
+  <header className="c-header">
+    <img src={logo} alt="Logo" />
     Uedlinker
   </header>
 )
