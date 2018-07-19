@@ -1,0 +1,40 @@
+{
+  "private": true,
+  "name": "server-template",
+  "version": "0.1.0",
+  "description": "基于 Koa 技术栈的 API 开发模板",
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "prepush": "npm run lint"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "koa": "^2.5.1",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@uedlinker/commitlint-config": "^1.0.1",
+    "@uedlinker/eslint-config-base": "^0.3.0",
+    "eslint": "^5.1.0",
+    "husky": "^0.14.3",
+    "nodemon": "^1.18.3"
+  },
+  "eslintConfig": {
+    "extends": "@uedlinker/eslint-config-base"
+  },
+  "eslintIgnore": [
+    "node_modules/"
+  ],
+  "commitlint": {
+    "extends": [
+      "@uedlinker/commitlint-config"
+    ]
+  }
+}
