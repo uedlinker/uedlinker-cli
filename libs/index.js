@@ -1,9 +1,11 @@
 const fs = require('fs')
 const path = require('path')
+const chalk = require('chalk')
 const inquirer = require('inquirer')
 const generate = require('./generate')
 
-console.log('快速生成项目开发模板（单页应用、服务器渲染）\n')
+console.log()
+console.log(chalk.bold('快速生成项目开发模板（单页应用、服务器渲染）\n'))
 
 inquirer.prompt([{
   name: 'templateName',
@@ -37,6 +39,6 @@ inquirer.prompt([{
   },
   when: answers => !answers.generateInCurrentDir,
 }]).then(answers => {
-  console.log(' ')
+  console.log()
   generate(answers.templateName, answers.dir)
 })
