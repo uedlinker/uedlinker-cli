@@ -5,7 +5,7 @@ const inquirer = require('inquirer')
 const generate = require('./generate')
 
 console.log()
-console.log(chalk.bold('快速生成项目开发模板（单页应用、服务器渲染）\n'))
+console.log(chalk.bold('快速生成项目开发模板（单页应用、服务器渲染、UI 组件开发、Node.js 服务）\n'))
 
 inquirer.prompt([{
   name: 'templateName',
@@ -14,6 +14,8 @@ inquirer.prompt([{
   choices: [
     { name: '单页应用（SPA）', value: 'spa' },
     { name: '服务器端渲染（SSR）', value: 'ssr' },
+    { name: 'UI 组件开发', value: 'components' },
+    { name: 'Node.js 服务', value: 'server' },
   ],
 }, {
   name: 'generateInCurrentDir',

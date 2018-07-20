@@ -12,6 +12,8 @@
         "bin",
         "libs",
         "templates",
+        "templates/components",
+        "templates/server",
         "templates/spa",
         "templates/ssr"
       ]
