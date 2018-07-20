@@ -1,0 +1,42 @@
+{
+  "private": true,
+  "name": "components-template",
+  "description": "React UI 组件开发模板",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "start-storybook -p 9001 -c .storybook",
+    "lint": "eslint . --ext \".js,.jsx\"",
+    "lint:fix": "eslint . --ext \".js,.jsx\" --fix",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "prepush": "npm run lint"
+  },
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@storybook/react": "^3.4.8",
+    "@uedlinker/commitlint-config": "^1.0.1",
+    "@uedlinker/eslint-config-base": "^0.3.0",
+    "@uedlinker/eslint-config-react": "^0.3.1",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.1.0",
+    "eslint-plugin-react": "^7.10.0",
+    "husky": "^0.14.3"
+  },
+  "eslintConfig": {
+    "extends": "@uedlinker/eslint-config-react"
+  },
+  "eslintIgnore": [
+    "node_modules/",
+    "!.storybook/"
+  ],
+  "commitlint": {
+    "extends": [
+      "@uedlinker/commitlint-config"
+    ]
+  }
+}
