@@ -2,6 +2,7 @@ const cssnano = require('cssnano')
 const merge = require('webpack-merge')
 const autoprefixer = require('autoprefixer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -42,7 +43,7 @@ module.exports = merge(common, {
               'transform-decorators-legacy',
               'syntax-dynamic-import',
             ],
-            compact: true,
+            cacheDirectory: true,
           },
         },
       },
@@ -81,6 +82,30 @@ module.exports = merge(common, {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(bmp|png|jpe?g|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: 'public/images/[name].[hash].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: 'public/fonts/[name].[hash].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
 
@@ -95,4 +120,18 @@ module.exports = merge(common, {
     }),
     new ManifestPlugin(),
   ],
+
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        uglifyOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
+      }),
+    ],
+  },
 })

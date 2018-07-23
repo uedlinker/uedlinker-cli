@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "start": "npm run build && http-server dist -o",
-    "dev": "cross-env RUNTIME=development webpack-dev-server --config=configs/webpack.dev.js --progress --color --hot",
+    "dev": "cross-env RUNTIME=development webpack-dev-server --config=configs/webpack.dev.js --color --hot",
     "build": "cross-env RUNTIME=production webpack --config=configs/webpack.prod.js",
     "analyze": "cross-env RUNTIME=production webpack --config=configs/webpack.analyze.js",
     "lint": "eslint . --ext \".js,.jsx\"",
@@ -56,6 +56,7 @@
     "react-hot-loader": "^4.3.3",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^1.0.1",
     "webpack": "^4.15.1",
     "webpack-bundle-analyzer": "^2.13.1",

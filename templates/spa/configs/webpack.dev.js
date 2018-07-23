@@ -67,6 +67,30 @@ module.exports = merge(common, {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(bmp|png|jpe?g|gif|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: 'public/images/[name].[ext]',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+              name: 'public/fonts/[name].[ext]',
+            },
+          },
+        ],
+      },
     ],
   },
 
@@ -86,6 +110,6 @@ module.exports = merge(common, {
     watchOptions: {
       ignored: /node_modules/,
     },
-    clientLogLevel: 'warning',
+    clientLogLevel: 'none',
   },
 })

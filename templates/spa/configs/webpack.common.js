@@ -13,36 +13,11 @@ module.exports = {
     publicPath: '/',
   },
 
-  module: {
-    rules: [
-      {
-        test: /\.(bmp|png|jpe?g|gif|svg)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'public/images/[name].[hash].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.(eot|ttf|woff|woff2)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'public/fonts/[name].[hash].[ext]',
-            },
-          },
-        ],
-      },
-    ],
-  },
-
   resolve: {
+    modules: [
+      path.resolve(appPath, 'src'),
+      path.resolve(appPath, 'node_modules'),
+    ],
     extensions: ['.js', '.json', '.jsx'],
     alias: {
       assets: path.resolve(appPath, './src/assets'),
@@ -68,13 +43,8 @@ module.exports = {
 
   optimization: {
     splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
+      chunks: 'all',
+      name: 'vendors',
     },
   },
 }
