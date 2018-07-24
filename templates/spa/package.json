@@ -5,76 +5,27 @@
   "version": "0.1.0",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "npm run build && http-server dist -o",
-    "dev": "cross-env RUNTIME=development webpack-dev-server --config=configs/webpack.dev.js --color --hot",
-    "build": "cross-env RUNTIME=production webpack --config=configs/webpack.prod.js",
-    "analyze": "cross-env RUNTIME=production webpack --config=configs/webpack.analyze.js",
-    "lint": "eslint . --ext \".js,.jsx\"",
-    "lint:fix": "eslint . --ext \".js,.jsx\" --fix",
-    "commitmsg": "commitlint -E GIT_PARAMS",
-    "prepush": "npm run lint && npm run flow"
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom"
   },
   "dependencies": {
-    "@rematch/core": "^1.0.0-beta.4",
-    "@rematch/immer": "^1.0.2",
-    "axios": "^0.18.0",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-loadable": "^5.4.0",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1"
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "@uedlinker/commitlint-config": "^1.0.1",
-    "@uedlinker/eslint-config-base": "^0.3.0",
-    "@uedlinker/eslint-config-react": "^0.3.1",
-    "autoprefixer": "^8.6.5",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "babel-plugin-transform-decorators-legacy": "^1.3.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.2",
-    "cross-env": "^5.2.0",
-    "css-loader": "^1.0.0",
-    "cssnano": "^4.0.0",
-    "eslint": "^5.1.0",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-react": "^7.10.0",
-    "file-loader": "^1.1.11",
-    "html-webpack-plugin": "^3.2.0",
-    "http-server": "^0.11.1",
-    "husky": "^0.14.3",
-    "mini-css-extract-plugin": "^0.4.1",
-    "node-sass": "^4.9.2",
-    "postcss-loader": "^2.1.5",
-    "react-hot-loader": "^4.3.3",
-    "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0",
-    "uglifyjs-webpack-plugin": "^1.2.7",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.15.1",
-    "webpack-bundle-analyzer": "^2.13.1",
-    "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4",
-    "webpack-manifest-plugin": "^2.0.3",
-    "webpack-merge": "^4.1.3"
+    "react-scripts": "^2.0.0-next.3e165448"
   },
-  "eslintConfig": {
-    "extends": "@uedlinker/eslint-config-react"
-  },
-  "eslintIgnore": [
-    "dist/",
-    "node_modules/"
-  ],
-  "commitlint": {
-    "extends": [
-      "@uedlinker/commitlint-config"
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">0.25%",
+      "not op_mini all",
+      "ie 11"
     ]
   }
 }
