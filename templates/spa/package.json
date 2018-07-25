@@ -9,14 +9,17 @@
     "dev": "cross-env NODE_PATH=src react-scripts start",
     "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
     "lint": "eslint . --ext=.js,.jsx --fix",
     "precommit": "lint-staged",
     "commitmsg": "commitlint -E GIT_PARAMS",
     "prepush": "npm run lint"
   },
   "dependencies": {
+    "@rematch/core": "^1.0.0-beta.4",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-redux": "^5.0.7"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
