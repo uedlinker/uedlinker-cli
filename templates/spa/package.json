@@ -5,16 +5,48 @@
   "version": "0.1.0",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom"
+    "start": "npm run build && serve -s build",
+    "dev": "cross-env NODE_PATH=src react-scripts start",
+    "build": "cross-env NODE_PATH=src react-scripts build",
+    "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
+    "lint": "eslint . --ext=.js,.jsx --fix",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -E GIT_PARAMS",
+    "prepush": "npm run lint"
   },
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
-    "react-scripts": "^2.0.0-next.3e165448"
+    "@commitlint/cli": "^7.0.0",
+    "@uedlinker/commitlint-config": "^1.0.1",
+    "@uedlinker/eslint-config-base": "^1.0.0",
+    "@uedlinker/eslint-config-react": "^1.0.0",
+    "babel-eslint": "^8.2.6",
+    "cross-env": "^5.2.0",
+    "eslint": "4.15.0",
+    "eslint-plugin-react": "^7.10.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "react-scripts": "^2.0.0-next.3e165448",
+    "serve": "^9.3.0"
+  },
+  "eslintConfig": {
+    "extends": "@uedlinker/eslint-config-react"
+  },
+  "eslintIgnore": [
+    "build",
+    "node_modules"
+  ],
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": "@uedlinker/commitlint-config"
   },
   "browserslist": {
     "development": [
