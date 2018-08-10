@@ -13,6 +13,7 @@
         "libs",
         "templates",
         "templates/components",
+        "templates/console",
         "templates/server",
         "templates/spa",
         "templates/ssr"
