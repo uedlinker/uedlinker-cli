@@ -69,7 +69,6 @@ yarn.lock
 
 # production
 dist
-build
 
 # misc
 .DS_Store
