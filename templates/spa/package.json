@@ -49,6 +49,8 @@
     ]
   },
   "commitlint": {
-    "extends": "@uedlinker/commitlint-config"
+    "extends": [
+      "@uedlinker/commitlint-config"
+    ]
   }
 }
