@@ -1,26 +1,16 @@
 const Koa = require('koa')
-const renderer = require('next')
-const Router = require('koa-router')
+
+const ssr = require('./ssr')
+const router = require('./router')
+const handleError = require('./middlewares/handleError')
 
 const port = parseInt(process.env.PORT, 10) || 3000
-const dev = process.env.NODE_ENV !== 'production'
-const app = renderer({ dev, dir: './client' })
-const handle = app.getRequestHandler()
 
-app.prepare()
+ssr.prepare()
   .then(() => {
     const server = new Koa()
-    const router = new Router()
 
-    router.get('/', async (ctx) => {
-      await app.render(ctx.req, ctx.res, '/', ctx.query)
-      ctx.respond = false
-    })
-
-    router.get('*', async (ctx) => {
-      await handle(ctx.req, ctx.res)
-      ctx.respond = false
-    })
+    server.use(handleError)
 
     server.use(async (ctx, next) => {
       ctx.res.statusCode = 200
