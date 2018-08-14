@@ -12,7 +12,7 @@
         "bin",
         "libs",
         "templates",
-        "templates/components",
+        "templates/ui",
         "templates/server",
         "templates/spa",
         "templates/ssr"
