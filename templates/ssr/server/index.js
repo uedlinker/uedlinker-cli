@@ -2,12 +2,15 @@ const Koa = require('koa')
 
 const ssr = require('./ssr')
 const router = require('./router')
+const handleError = require('./middlewares/handleError')
 
 const port = parseInt(process.env.PORT, 10) || 3000
 
 ssr.prepare()
   .then(() => {
     const server = new Koa()
+
+    server.use(handleError)
 
     server.use(async (ctx, next) => {
       ctx.res.statusCode = 200
