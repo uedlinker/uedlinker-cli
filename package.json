@@ -1,6 +1,6 @@
 {
   "name": "@uedlinker/cli",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "快速生成项目开发模板（单页应用、服务器渲染、UI 组件开发、Node.js 服务）的命令行工具",
   "main": "libs/index.js",
   "scripts": {
