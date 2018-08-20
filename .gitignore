@@ -68,3 +68,7 @@ yarn.lock
 dist/
 
 .DS_Store
+
+# Editor Files
+.history
+.idea

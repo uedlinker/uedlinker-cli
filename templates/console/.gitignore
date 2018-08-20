@@ -72,3 +72,7 @@ dist
 
 # misc
 .DS_Store
+
+# Editor Files
+.history
+.idea
