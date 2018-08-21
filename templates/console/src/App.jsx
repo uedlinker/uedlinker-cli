@@ -3,15 +3,14 @@ import { Provider } from 'react-redux'
 import { Router, Route, Switch } from 'react-router-dom'
 
 import store from './store'
-import Main from './pages/Main'
 import history from './utils/history'
-
+import routes from './common/routes'
 
 const App = () => (
   <Provider store={store}>
     <Router history={history} >
       <Switch>
-        <Route exact path="/" component={Main} />
+        <Route exact path="/" component={routes.Main} />
         <Route render={() => <div>404</div>} />
       </Switch>
     </Router>
