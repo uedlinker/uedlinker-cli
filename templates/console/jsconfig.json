@@ -7,8 +7,14 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
+      "Assets/*": ["./src/assets/*"],
       "Components/*": ["./src/components/*"],
+      "Constants/*": ["./src/constants/*"],
+      "Layouts/*": ["./src/layouts/*"],
+      "Models/*": ["./src/models/*"],
       "Pages/*": ["./src/pages/*"],
+      "Store/*": ["./src/store/*"],
+      "Styles/*": ["./src/styles/*"],
     }
   },
   "exclude": [

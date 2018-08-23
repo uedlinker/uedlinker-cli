@@ -17,12 +17,13 @@
     "prepush": "npm run lint"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.0.0-rc.2",
     "@commitlint/cli": "^7.0.0",
-    "@rematch/core": "^0.6.0",
+    "@rematch/core": "^1.0.0-beta.4",
     "@uedlinker/commitlint-config": "^1.0.1",
     "@uedlinker/eslint-config-base": "^1.0.0",
     "@uedlinker/eslint-config-react": "^1.1.0",
-    "@uedlinker/scripts": "^0.2.1",
+    "@uedlinker/scripts": "^0.2.2",
     "antd": "^3.8.2",
     "babel-eslint": "^8.2.6",
     "babel-plugin-import": "^1.8.0",

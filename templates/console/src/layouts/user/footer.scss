@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+
+.container {
+  padding: 0 16px;
+  margin: 48px 0 24px;
+  text-align: center;
+}
+
+.links {
+  margin-bottom: 8px;
+
+  a {
+    color: $text-color-secondary;
+
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+}
+
+.copyright {
+  color: $text-color-secondary;
+}

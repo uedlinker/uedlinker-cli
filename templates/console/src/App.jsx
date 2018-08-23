@@ -10,7 +10,7 @@ const App = () => (
   <Provider store={store}>
     <Router history={history} >
       <Switch>
-        <Route exact path="/" component={routes.Main} />
+        <Route path="/user" component={routes.UserLayout} />
         <Route render={() => <div>404</div>} />
       </Switch>
     </Router>

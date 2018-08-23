@@ -7,8 +7,14 @@ const isProd = process.env.NODE_ENV === 'production'
 module.exports = defaultConfig => {
   defaultConfig.resolve.alias = {
     ...defaultConfig.resolve.alias,
+    Assets: path.resolve(__dirname, 'src/assets'),
+    Constants: path.resolve(__dirname, 'src/constants'),
     Components: path.resolve(__dirname, 'src/components'),
+    Layouts: path.resolve(__dirname, 'src/layouts'),
+    Models: path.resolve(__dirname, 'src/models'),
     Pages: path.resolve(__dirname, 'src/pages'),
+    Store: path.resolve(__dirname, 'src/store'),
+    Styles: path.resolve(__dirname, 'src/style'),
   }
 
   const scssRule = defaultConfig.module.rules.find(

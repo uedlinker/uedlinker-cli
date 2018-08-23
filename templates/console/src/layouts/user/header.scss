@@ -1,0 +1,34 @@
+@import '../../styles/variables.scss';
+
+
+.container {
+  text-align: center;
+
+  a:focus {
+    text-decoration: none;
+  }
+
+  h1 {
+    font-size: 33px;
+    color: $heading-color;
+    display: inline-block;
+    margin: 0;
+    font-weight: 600;
+  }
+}
+
+.title {
+  height: 44px;
+  line-height: 44px;
+}
+
+.subtitle {
+  margin: 12px 0 40px;
+  color: $text-color-secondary;
+}
+
+.logo {
+  height: 44px;
+  vertical-align: top;
+  margin-right: 16px;
+}

@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+:global {
+  .ant-input-affix-wrapper .ant-input:not(:first-child) {
+    padding-left: 34px;
+  }
+}
+
+.container {
+  width: 368px;
+  margin: 0 auto;
+}
+
+.prefix-icon {
+  color: $disabled-color;
+}
+
+.forgot-password,
+.register {
+  float: right;
+}
+
+.getCaptcha {
+  display: block;
+  width: 100%;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.icon {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.2);
+  margin-left: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
