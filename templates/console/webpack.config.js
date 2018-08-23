@@ -15,6 +15,7 @@ module.exports = defaultConfig => {
     Pages: path.resolve(__dirname, 'src/pages'),
     Store: path.resolve(__dirname, 'src/store'),
     Styles: path.resolve(__dirname, 'src/style'),
+    Utils: path.resolve(__dirname, 'src/utils'),
   }
 
   const scssRule = defaultConfig.module.rules.find(
