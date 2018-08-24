@@ -35,7 +35,7 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    const { form: { validateFields }, login, history, loginType } = this.props
+    const { form: { validateFields }, submit, history, loginType } = this.props
     const valiateFieldNames = []
 
     if (loginType === LOGIN_TYPE.ACCOUNT) {
@@ -46,7 +46,7 @@ class Login extends Component {
 
     validateFields(valiateFieldNames, { force: true }, (errors, values) => {
       if (!errors) {
-        login(Object.assign({}, values, { type: loginType })).then((result) => {
+        submit(Object.assign({}, values, { type: loginType })).then((result) => {
           if (result) {
             history.replace('/dashboard')
           }
@@ -62,14 +62,15 @@ class Login extends Component {
       form: { getFieldDecorator },
       autoLogin,
       loginType,
-      loginError,
+      isLoginFailed,
+      loading,
     } = this.props
 
     return (
       <Form onSubmit={this.handleSubmit} className={styles.container}>
         <Tabs defaultActiveKey={loginType} onChange={this.handleChangeLoginType} animated={false}>
           <TabPane tab="账号密码登录" key={LOGIN_TYPE.ACCOUNT}>
-            {loginError && (loginType === LOGIN_TYPE.ACCOUNT) && this.renderMessage('账户或密码错误（admin/888888）')}
+            {isLoginFailed && (loginType === LOGIN_TYPE.ACCOUNT) && this.renderMessage('账户或密码错误（admin/888888）')}
             <FormItem>
               {getFieldDecorator('username', {
                 rules: [{
@@ -101,7 +102,7 @@ class Login extends Component {
             </FormItem>
           </TabPane>
           <TabPane tab="手机号登录" key={LOGIN_TYPE.MOBILE}>
-            {loginError && (loginType === LOGIN_TYPE.MOBILE) && this.renderMessage('验证码错误！')}
+            {isLoginFailed && (loginType === LOGIN_TYPE.MOBILE) && this.renderMessage('验证码错误！')}
             <FormItem>
               {getFieldDecorator('mobile', {
                 rules: [{
@@ -154,7 +155,14 @@ class Login extends Component {
           <Link to="/forgot-password" className={styles['forgot-password']}>忘记密码</Link>
         </div>
         <FormItem>
-          <Button type="primary" htmlType="submit" className={styles.submit} size="large">登录</Button>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className={styles.submit}
+            size="large"
+            loading={loading}
+          >登录
+          </Button>
         </FormItem>
         <div>
           其他登录的方式
@@ -172,10 +180,11 @@ export default connect(
   state => ({
     autoLogin: state.login.autoLogin,
     loginType: state.login.loginType,
-    loginError: state.login.loginError,
+    isLoginFailed: state.login.isLoginFailed,
+    loading: state.loading.effects.login.submit,
   }),
   dispatch => ({
-    login: info => dispatch.login.login(info),
+    submit: info => dispatch.login.submit(info),
     changeAutoLogin: () => dispatch.login.changeAutoLogin(),
     changeLoginType: () => dispatch.login.changeLoginType(),
   })

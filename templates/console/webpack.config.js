@@ -14,7 +14,7 @@ module.exports = defaultConfig => {
     Models: path.resolve(__dirname, 'src/models'),
     Pages: path.resolve(__dirname, 'src/pages'),
     Store: path.resolve(__dirname, 'src/store'),
-    Styles: path.resolve(__dirname, 'src/style'),
+    Styles: path.resolve(__dirname, 'src/styles'),
     Utils: path.resolve(__dirname, 'src/utils'),
   }
 

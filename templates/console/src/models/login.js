@@ -6,7 +6,7 @@ export default {
   state: {
     autoLogin: false,
     loginType: LOGIN_TYPE.ACCOUNT,
-    loginError: false,
+    isLoginFailed: false,
   },
   reducers: {
     loginSuccess (state, payload) {
@@ -14,7 +14,7 @@ export default {
 
       return {
         ...state,
-        loginError: false,
+        isLoginFailed: false,
       }
     },
     changeAutoLogin (state) {
@@ -29,15 +29,15 @@ export default {
         loginType: payload,
       }
     },
-    changeLoginResult (state, payload) {
+    loginFailure (state) {
       return {
         ...state,
-        loginError: payload,
+        isLoginFailed: true,
       }
     },
   },
   effects: dispatch => ({
-    async login (payload) {
+    async submit (payload) {
 
       // TODO: 换成实际登录 API
       await delay(1000)
@@ -50,7 +50,7 @@ export default {
       } else if ((username === 'user') && (password === '123456')) {
         authority = 'user'
       } else {
-        this.changeLoginResult(true)
+        this.loginFailure()
         return Promise.resolve(false)
       }
 

@@ -3,16 +3,9 @@ const delay = time => new Promise(resolve => setTimeout(() => resolve(), time))
 module.exports = {
   state: {
     popoverVisible: false,
-    pending: false,
     email: '',
   },
   reducers: {
-    changePending (state, payload) {
-      return {
-        ...state,
-        pending: payload,
-      }
-    },
     togglePopoverVisible (state, payload) {
       return {
         ...state,
@@ -24,15 +17,12 @@ module.exports = {
         ...state,
         email: payload,
         popoverVisible: false,
-        pending: false,
       }
     },
   },
   effects: {
-    async register (payload) {
+    async submit (payload) {
       console.log(payload)
-
-      this.changePending(true)
 
       // TODO: 换成实际注册 API
       await delay(1000)

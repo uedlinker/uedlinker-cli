@@ -73,13 +73,13 @@ class Register extends Component {
     e.preventDefault()
     const {
       form: { validateFields },
-      register,
+      submit,
       history,
     } = this.props
 
     validateFields((errors, values) => {
       if (!errors) {
-        register(values)
+        submit(values)
           .then(() => {
             // resetFields()
             history.push('/user/register-result')
@@ -112,7 +112,7 @@ class Register extends Component {
     const {
       form: { getFieldDecorator },
       visible,
-      registering,
+      loading,
     } = this.props
 
     const strengthType = this.getPasswordStrength()
@@ -232,7 +232,7 @@ class Register extends Component {
               type="primary"
               className={styles.submit}
               htmlType="submit"
-              loading={registering}
+              loading={loading}
             >注册
             </Button>
             <Link to="/user/login" className={styles.login}>使用已有账户登录</Link>
@@ -246,10 +246,10 @@ class Register extends Component {
 export default connect(
   state => ({
     visible: state.register.popoverVisible,
-    registering: state.register.pending,
+    loading: state.loading.effects.register.submit,
   }),
   dispatch => ({
-    register: values => dispatch.register.register(values),
+    submit: values => dispatch.register.submit(values),
     togglePopoverVisible: shouldVisible => dispatch.register.togglePopoverVisible(shouldVisible),
   })
 )(Form.create()(Register))
