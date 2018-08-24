@@ -24,7 +24,7 @@
     "@uedlinker/commitlint-config": "^1.0.1",
     "@uedlinker/eslint-config-base": "^1.0.0",
     "@uedlinker/eslint-config-react": "^1.1.0",
-    "@uedlinker/scripts": "^0.2.2",
+    "@uedlinker/scripts": "^0.2.3",
     "antd": "^3.8.2",
     "babel-eslint": "^8.2.6",
     "babel-plugin-import": "^1.8.0",
@@ -45,7 +45,13 @@
     "serve": "^9.4.2"
   },
   "eslintConfig": {
-    "extends": "@uedlinker/eslint-config-react"
+    "extends": "@uedlinker/eslint-config-react",
+    "env": {
+      "browser": true,
+      "node": true,
+      "es6": true,
+      "jest": true
+    }
   },
   "eslintIgnore": [
     "dist",

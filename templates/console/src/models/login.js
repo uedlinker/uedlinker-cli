@@ -54,7 +54,7 @@ export default {
         return Promise.resolve(false)
       }
 
-      dispatch.auth.storeAuthority(authority)
+      dispatch.auth.updateAuthority(authority)
 
       this.loginSuccess()
 

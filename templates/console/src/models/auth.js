@@ -1,3 +1,5 @@
+import { setCurrentAuthority } from 'Components/Authorization'
+
 export default {
   state: {
     authority: '',
@@ -8,6 +10,12 @@ export default {
         ...state,
         authority: payload,
       }
+    },
+  },
+  effects: {
+    updateAuthority (payload) {
+      setCurrentAuthority(payload)
+      this.storeAuthority(payload)
     },
   },
 }

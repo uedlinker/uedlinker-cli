@@ -8,8 +8,9 @@ module.exports = defaultConfig => {
   defaultConfig.resolve.alias = {
     ...defaultConfig.resolve.alias,
     Assets: path.resolve(__dirname, 'src/assets'),
-    Constants: path.resolve(__dirname, 'src/constants'),
+    Common: path.resolve(__dirname, 'src/common'),
     Components: path.resolve(__dirname, 'src/components'),
+    Constants: path.resolve(__dirname, 'src/constants'),
     Layouts: path.resolve(__dirname, 'src/layouts'),
     Models: path.resolve(__dirname, 'src/models'),
     Pages: path.resolve(__dirname, 'src/pages'),

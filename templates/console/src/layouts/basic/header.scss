@@ -1,0 +1,46 @@
+@import 'Styles/variables.scss';
+
+.container {
+  padding: 0 12px 0 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+  button {
+    appearance: none;
+    border: 0;
+    outline: none;
+  }
+
+  .menu-trigger {
+    font-size: 20px;
+    padding: 0 24px;
+  }
+}
+
+.action-bar {
+  float: right;
+}
+
+.action {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 12px;
+  color: rgba(0, 0, 0, 0.65);
+  line-height: $layout-header-height;
+  height: $layout-header-height;
+  &:hover {
+    background: #e6f7ff;
+  }
+  transition: all, 0.2s;
+
+  i {
+    vertical-align: middle;
+  }
+}
+
+.document {
+  &:hover {
+    color: inherit;
+  }
+}

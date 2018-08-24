@@ -8,7 +8,13 @@ const UserLayout = Loadable({
   loading: () => <Loading />,
 })
 
+const BasicLayout = Loadable({
+  loader: () => import('../layouts/basic/index'),
+  loading: () => <Loading />,
+})
+
 const routes = {
   UserLayout,
+  BasicLayout,
 }
 export default routes

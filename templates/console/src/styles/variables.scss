@@ -5,7 +5,7 @@
 $ant-prefix             : ant;
 
 // -------- Colors -----------
-$primary-color          : #2CA7F7;
+$primary-color          : #1F56F5;
 $info-color             : $primary-color;
 $success-color          : #52c41a;
 $processing-color       : $primary-color;
@@ -13,6 +13,19 @@ $error-color            : #f5222d;
 $highlight-color        : #f5222d;
 $warning-color          : #faad14;
 $normal-color           : #d9d9d9;
+
+// Color used by default to control hover and active backgrounds and for
+// alert info backgrounds.
+$primary-1: #edf5ff;  
+$primary-2: #c4dbff; 
+$primary-3: #9cbeff;  
+$primary-4: #739fff;  
+$primary-5: #4a7dff;  
+$primary-6: $primary-color;                                
+$primary-7: #113acf;  
+$primary-8: #0523a8;  
+$primary-9: #001482;
+$primary-10:#000b5c;
 
 
 // Background color for `<body>`
@@ -47,8 +60,8 @@ $control-padding-horizontal-sm: $padding-xs;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
-// $item-active-bg         : $primary-1;
-// $item-hover-bg          : $primary-1;
+$item-active-bg         : $primary-1;
+$item-hover-bg          : $primary-1;
 
 // ICONFONT
 $iconfont-css-prefix    : anticon;
@@ -56,8 +69,8 @@ $icon-url               : "https://at.alicdn.com/t/font_148784_v4ggb6wrjmkotj4i"
 
 // LINK
 $link-color             : $primary-color;
-// $link-hover-color       : color(~`colorPalette("${link-color}", 5)`);
-// $link-active-color      : color(~`colorPalette("${link-color}", 7)`);
+$link-hover-color       : $primary-5;
+$link-active-color      : $primary-7;
 $link-decoration        : none;
 $link-hover-decoration  : none;
 
@@ -137,7 +150,7 @@ $btn-circle-size        : $btn-height-base;
 $btn-circle-size-lg     : $btn-height-lg;
 $btn-circle-size-sm     : $btn-height-sm;
 
-// $btn-group-border       : $primary-5;
+$btn-group-border       : $primary-5;
 
 // Checkbox
 $checkbox-size          : 16px;
@@ -150,8 +163,8 @@ $radio-dot-color        : $primary-color;
 // Radio buttons
 $radio-button-bg           : $btn-default-bg;
 $radio-button-color        : $btn-default-color;
-// $radio-button-hover-color  : $primary-5;
-// $radio-button-active-color : $primary-7;
+$radio-button-hover-color  : $primary-5;
+$radio-button-active-color : $primary-7;
 
 // Media queries breakpoints
 // Extra small screen / phone
@@ -299,7 +312,7 @@ $menu-collapsed-width: 80px;
 $menu-bg: $component-background;
 $menu-item-color: $text-color;
 $menu-highlight-color: $primary-color;
-// $menu-item-active-bg: $item-active-bg;
+$menu-item-active-bg: $item-active-bg;
 $menu-item-group-title-color: $text-color-secondary;
 // dark theme
 $menu-dark-color: $text-color-secondary-dark;
@@ -319,7 +332,7 @@ $spin-dot-size-lg: 32px;
 // --
 $table-header-bg: $background-color-light;
 $table-header-sort-bg: $background-color-base;
-// $table-row-hover-bg: $primary-1;
+$table-row-hover-bg: $primary-1;
 $table-selected-row-bg: #fafafa;
 $table-expanded-row-bg: #fbfbfb;
 $table-padding-vertical: 16px;
@@ -353,7 +366,7 @@ $badge-status-size: 6px;
 
 // Rate
 // ---
-// $rate-star-color: $yellow-6;
+$rate-star-color: #fadb14;
 $rate-star-bg: $border-color-split;
 
 // Card
@@ -383,8 +396,8 @@ $tabs-vertical-padding: 8px 24px;
 $tabs-vertical-margin: 0 0 16px 0;
 $tabs-scrolling-size: 32px;
 $tabs-highlight-color: $primary-color;
-// $tabs-hover-color: $primary-5;
-// $tabs-active-color: $primary-7;
+$tabs-hover-color: $primary-5;
+$tabs-active-color: $primary-7;
 
 // BackTop
 // ---
@@ -426,7 +439,7 @@ $breadcrumb-last-item-color:   $text-color;
 $breadcrumb-font-size:         $font-size-base;
 $breadcrumb-icon-font-size:    $font-size-sm;
 $breadcrumb-link-color:        $text-color-secondary;
-// $breadcrumb-link-color-hover:  $primary-5;
+$breadcrumb-link-color-hover:  $primary-5;
 $breadcrumb-separator-color:   $text-color-secondary;
 $breadcrumb-separator-margin:  0 $padding-xs;
 
@@ -435,10 +448,10 @@ $breadcrumb-separator-margin:  0 $padding-xs;
 $slider-margin:                       14px 6px 10px;
 $slider-rail-background-color:        $background-color-base;
 $slider-rail-background-color-hover:  #e1e1e1;
-// $slider-track-background-color:       $primary-3;
-// $slider-track-background-color-hover: $primary-4;
-// $slider-handle-color:                 $primary-3;
-// $slider-handle-color-hover:           $primary-4;
+$slider-track-background-color:       $primary-3;
+$slider-track-background-color-hover: $primary-4;
+$slider-handle-color:                 $primary-3;
+$slider-handle-color-hover:           $primary-4;
 $slider-handle-color-focus:           tint($primary-color, 20%);
 $slider-handle-color-focus-shadow:    tint($primary-color, 50%);
 $slider-handle-color-tooltip-open:    $primary-color;
