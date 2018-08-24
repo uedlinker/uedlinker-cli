@@ -20,14 +20,6 @@ class Login extends Component {
     history: PropTypes.shape({}).isRequired,
   }
 
-  handleChangeAutoLogin = () => {
-    this.props.changeAutoLogin()
-  }
-
-  handleChangeLoginType = (activeKey) => {
-    this.props.changeLoginType(activeKey)
-  }
-
   handleGetCaptcha = () => {
     console.log('获取验证码！') // eslint-disable-line no-console
   }
@@ -64,11 +56,13 @@ class Login extends Component {
       loginType,
       isLoginFailed,
       loading,
+      onLoginTypeChange,
+      onChangeAutoLogin,
     } = this.props
 
     return (
       <Form onSubmit={this.handleSubmit} className={styles.container}>
-        <Tabs defaultActiveKey={loginType} onChange={this.handleChangeLoginType} animated={false}>
+        <Tabs defaultActiveKey={loginType} onChange={onLoginTypeChange} animated={false}>
           <TabPane tab="账号密码登录" key={LOGIN_TYPE.ACCOUNT}>
             {isLoginFailed && (loginType === LOGIN_TYPE.ACCOUNT) && this.renderMessage('账户或密码错误（admin/888888）')}
             <FormItem>
@@ -151,7 +145,7 @@ class Login extends Component {
           </TabPane>
         </Tabs>
         <div>
-          <Checkbox checked={autoLogin} onChange={this.handleChangeAutoLogin}>自动登录</Checkbox>
+          <Checkbox checked={autoLogin} onChange={onChangeAutoLogin}>自动登录</Checkbox>
           <Link to="/forgot-password" className={styles['forgot-password']}>忘记密码</Link>
         </div>
         <FormItem>
@@ -185,7 +179,7 @@ export default connect(
   }),
   dispatch => ({
     submit: info => dispatch.login.submit(info),
-    changeAutoLogin: () => dispatch.login.changeAutoLogin(),
-    changeLoginType: () => dispatch.login.changeLoginType(),
+    onChangeAutoLogin: () => dispatch.login.changeAutoLogin(),
+    onLoginTypeChange: type => dispatch.login.changeLoginType(type),
   })
 )(Form.create()(Login))

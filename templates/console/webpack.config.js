@@ -63,7 +63,7 @@ module.exports = defaultConfig => {
       loader: 'less-loader', // compiles Less to CSS
       options: {
         modifyVars: {
-          'primary-color': '#255CF1',
+          'primary-color': '#2CA7F7',
         },
         javascriptEnabled: true,
       },
